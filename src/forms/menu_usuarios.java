@@ -33,6 +33,7 @@ public class menu_usuarios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
         nav_header = new javax.swing.JPanel();
         logo_label1 = new javax.swing.JLabel();
         sidebar1 = new javax.swing.JPanel();
@@ -48,6 +49,12 @@ public class menu_usuarios extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,8 +88,8 @@ public class menu_usuarios extends javax.swing.JFrame {
         nav_panel.add(jLabel2);
         jLabel2.setBounds(30, 10, 140, 30);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Usuarios");
         nav_panel.add(jLabel3);
         jLabel3.setBounds(30, 110, 100, 15);
@@ -92,6 +99,11 @@ public class menu_usuarios extends javax.swing.JFrame {
         jLabel4.setText("Inicio");
         nav_panel.add(jLabel4);
         jLabel4.setBounds(30, 70, 100, 15);
+
+        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        nav_panel.add(jSeparator2);
+        jSeparator2.setBounds(10, 50, 330, 10);
 
         layout_panel.add(nav_panel);
         nav_panel.setBounds(0, 130, 350, 680);
@@ -252,7 +264,7 @@ public class menu_usuarios extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(51, 204, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("jButton1");
+        jButton2.setText("Actualizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -264,7 +276,7 @@ public class menu_usuarios extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(51, 204, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("jButton1");
+        jButton3.setText("Cargar Tabla");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -273,10 +285,10 @@ public class menu_usuarios extends javax.swing.JFrame {
         layout_panel.add(jButton3);
         jButton3.setBounds(660, 480, 110, 50);
 
-        jButton4.setBackground(new java.awt.Color(51, 204, 255));
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("jButton1");
+        jButton4.setText("Eliminar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -284,6 +296,45 @@ public class menu_usuarios extends javax.swing.JFrame {
         });
         layout_panel.add(jButton4);
         jButton4.setBounds(790, 480, 110, 50);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("ID Empleado");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        layout_panel.add(jLabel5);
+        jLabel5.setBounds(990, 230, 110, 20);
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        layout_panel.add(jTextField1);
+        jTextField1.setBounds(960, 258, 180, 30);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Primer Nombre");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        layout_panel.add(jLabel6);
+        jLabel6.setBounds(990, 300, 110, 20);
+
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        layout_panel.add(jTextField2);
+        jTextField2.setBounds(960, 330, 180, 30);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Primer Apellido");
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        layout_panel.add(jLabel7);
+        jLabel7.setBounds(990, 370, 110, 20);
+
+        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        layout_panel.add(jTextField3);
+        jTextField3.setBounds(960, 400, 180, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -355,10 +406,17 @@ public class menu_usuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel layout_panel;
     private javax.swing.JLabel logo_label;
     private javax.swing.JLabel logo_label1;

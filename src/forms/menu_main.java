@@ -58,6 +58,8 @@ public class menu_main extends javax.swing.JFrame {
         nav_panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
         nav_header = new javax.swing.JPanel();
         logo_label1 = new javax.swing.JLabel();
         btnGestionInventario = new javax.swing.JButton();
@@ -115,6 +117,17 @@ public class menu_main extends javax.swing.JFrame {
         jLabel3.setText("Inicio");
         nav_panel.add(jLabel3);
         jLabel3.setBounds(30, 70, 100, 15);
+
+        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        nav_panel.add(jSeparator2);
+        jSeparator2.setBounds(10, 50, 330, 10);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Usuarios");
+        nav_panel.add(jLabel4);
+        jLabel4.setBounds(30, 110, 100, 15);
 
         layout_panel.add(nav_panel);
         nav_panel.setBounds(0, 130, 350, 680);
@@ -367,8 +380,10 @@ public class menu_main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel layout_panel;
     private javax.swing.JLabel logo_label;
     private javax.swing.JLabel logo_label1;
