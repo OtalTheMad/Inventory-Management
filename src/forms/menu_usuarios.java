@@ -30,9 +30,88 @@ public class menu_usuarios extends javax.swing.JFrame {
         
         Object[] fila = {EID, nombre, apellido, nombreCompleto, fechaSeleccionada};
         
-        tablaUsuarios.addRow(fila);
+        boolean dataExiste = false;
+        for (int i = 0; i < tablaUsuarios.getRowCount(); i++)
+        {
+            boolean filasIguales = true;
+            for (int j = 0; j < tablaUsuarios.getColumnCount(); j++)
+            {
+                if (!fila[j].equals(tablaUsuarios.getValueAt(i, j)))
+                {
+                    filasIguales = false;
+                    break;
+                }
+            }
+            if (filasIguales)
+            {
+                dataExiste = true;
+                break;
+            }
+        }
+        
+        if (!dataExiste)
+        {
+            tablaUsuarios.addRow(fila);
+        }
     }
+    
+    public void agregarRegistro()
+    {
+        EID = Integer.parseInt(txtEID.getText());
+        nombre = txtFirstName.getText();
+        apellido = txtLastName.getText();
+        nombreCompleto = nombre + " " + apellido;
+        fechaSeleccionada = jDateChooser1.getDate();
+        
+        empleadosData.setEID(EID);
+        empleadosData.setNombreEmp(nombre);
+        empleadosData.setApellidoEmp(apellido);
+        empleadosData.setNombreCompleto(nombreCompleto);
+        empleadosData.setFecha(fechaSeleccionada);
+        
+        cargarTabla();
+    }
+    
+    public void actualizarTabla()
+    {
+        DefaultTableModel tablaUsuarios = (DefaultTableModel) jTable1.getModel();
+        
+        Object[] fila = {EID, nombre, apellido, nombreCompleto, fechaSeleccionada};
+        
+        boolean dataExiste = false;
+        for (int i = 0; i < tablaUsuarios.getRowCount(); i++)
+        {
+            boolean filasIguales = true;
+            for (int j = 0; j < tablaUsuarios.getColumnCount(); j++)
+            {
+                if (!fila[j].equals(tablaUsuarios.getValueAt(i, j)))
+                {
+                    filasIguales = false;
+                    break;
+                }
+            }
+            if (filasIguales)
+            {
+                dataExiste = true;
+                EID = Integer.parseInt(txtEID.getText());
+                nombre = txtFirstName.getText();
+                apellido = txtLastName.getText();
+                nombreCompleto = nombre + " " + apellido;
+                fechaSeleccionada = jDateChooser1.getDate();
 
+                empleadosData.setEID(EID);
+                empleadosData.setNombreEmp(nombre);
+                empleadosData.setApellidoEmp(apellido);
+                empleadosData.setNombreCompleto(nombreCompleto);
+                empleadosData.setFecha(fechaSeleccionada);
+            }
+        }
+        
+        if (dataExiste)
+        {
+            tablaUsuarios.addRow(fila);
+        }
+    }
     
     //Métodos de Ventanas
     private void abrirMenuMain()
@@ -418,7 +497,7 @@ public class menu_usuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+        actualizarTabla();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
@@ -426,23 +505,11 @@ public class menu_usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReadActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        EID = Integer.parseInt(txtEID.getText());
-        nombre = txtFirstName.getText();
-        apellido = txtLastName.getText();
-        nombreCompleto = nombre + " " + apellido;
-        fechaSeleccionada = jDateChooser1.getDate();
-        
-        empleadosData.setEID(EID);
-        empleadosData.setNombreEmp(nombre);
-        empleadosData.setApellidoEmp(apellido);
-        empleadosData.setNombreCompleto(nombreCompleto);
-        empleadosData.setFecha(fechaSeleccionada);
-        
-        cargarTabla();
+        agregarRegistro();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked

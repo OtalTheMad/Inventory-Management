@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 public class menu_main extends javax.swing.JFrame {
     
     private menu_usuarios abrirFormUsuarios;
+    private menu_main abrirFormMain;
     
     public menu_main() {
         
@@ -59,6 +60,19 @@ public class menu_main extends javax.swing.JFrame {
         else
         {
             abrirFormUsuarios.toFront();
+        }
+    }
+    
+    private void abrirMenuMain()
+    {
+        if (abrirFormMain == null || !abrirFormMain.isVisible())
+        {
+            abrirFormMain = new menu_main();
+            abrirFormMain.setVisible(true);
+        }
+        else
+        {
+            abrirFormMain.toFront();
         }
     }
     
@@ -132,6 +146,11 @@ public class menu_main extends javax.swing.JFrame {
         lblInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblInicio.setForeground(new java.awt.Color(0, 0, 0));
         lblInicio.setText("Inicio");
+        lblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblInicioMouseClicked(evt);
+            }
+        });
         nav_panel.add(lblInicio);
         lblInicio.setBounds(30, 70, 100, 15);
 
@@ -360,6 +379,10 @@ public class menu_main extends javax.swing.JFrame {
     private void lblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsuariosMouseClicked
         abrirMenuUsuarios();
     }//GEN-LAST:event_lblUsuariosMouseClicked
+
+    private void lblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioMouseClicked
+        abrirMenuMain();
+    }//GEN-LAST:event_lblInicioMouseClicked
 
     /**
      * @param args the command line arguments
