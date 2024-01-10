@@ -2,6 +2,8 @@ package forms;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import classes.empleados_data;
+import java.util.Date;
 
 public class menu_usuarios extends javax.swing.JFrame {
 
@@ -11,12 +13,26 @@ public class menu_usuarios extends javax.swing.JFrame {
         initComponents();
     }
     
-    int EID = 0;
+    //Variables de Clases
+    empleados_data empleadosData = new empleados_data();
+    //Variables de Tabla
+    int EID = empleadosData.getEID();
+    String nombre = empleadosData.getNombreEmp();
+    String apellido = empleadosData.getApellidoEmp();
+    String nombreCompleto = empleadosData.getNombreCompleto();
+    Date fechaSeleccionada = empleadosData.getFecha();
     
-    public void loadTable()
+    
+    //Métodos de Manipulación de Datos
+    public void cargarTabla()
     {
-        DefaultTableModel userTable = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tablaUsuarios = (DefaultTableModel) jTable1.getModel();
+        
+        Object[] fila = {EID, nombre, apellido, nombreCompleto, fechaSeleccionada};
+        
+        tablaUsuarios.addRow(fila);
     }
+
     
     //Métodos de Ventanas
     private void abrirMenuMain()
@@ -31,7 +47,6 @@ public class menu_usuarios extends javax.swing.JFrame {
             abrirFormMain.toFront();
         }
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -66,8 +81,12 @@ public class menu_usuarios extends javax.swing.JFrame {
         txtFirstName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1208, 808));
+        setSize(new java.awt.Dimension(700, 700));
 
         layout_panel.setBackground(new java.awt.Color(153, 204, 255));
         layout_panel.setLayout(null);
@@ -231,7 +250,7 @@ public class menu_usuarios extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(51, 204, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "IdEmpleado", "PrimerNombre", "PrimerApellido", "NombreCompleto", "FechaInicio"
@@ -241,7 +260,7 @@ public class menu_usuarios extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -357,6 +376,18 @@ public class menu_usuarios extends javax.swing.JFrame {
         layout_panel.add(txtLastName);
         txtLastName.setBounds(960, 400, 180, 30);
 
+        jDateChooser1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        layout_panel.add(jDateChooser1);
+        jDateChooser1.setBounds(960, 480, 180, 30);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Fecha de Inicio");
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        layout_panel.add(jLabel8);
+        jLabel8.setBounds(990, 450, 110, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -385,8 +416,18 @@ public class menu_usuarios extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         EID = Integer.parseInt(txtEID.getText());
+        nombre = txtFirstName.getText();
+        apellido = txtLastName.getText();
+        nombreCompleto = nombre + " " + apellido;
+        fechaSeleccionada = jDateChooser1.getDate();
         
+        empleadosData.setEID(EID);
+        empleadosData.setNombreEmp(nombre);
+        empleadosData.setApellidoEmp(apellido);
+        empleadosData.setNombreCompleto(nombreCompleto);
+        empleadosData.setFecha(fechaSeleccionada);
         
+        cargarTabla();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -430,6 +471,7 @@ public class menu_usuarios extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnUpdate;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,6 +479,7 @@ public class menu_usuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

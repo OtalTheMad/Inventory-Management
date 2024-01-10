@@ -111,7 +111,7 @@ public class menu_main extends javax.swing.JFrame {
         logo_label.setText("<html></html>");
         logo_label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(logo_label);
-        logo_label.setBounds(150, 10, 70, 80);
+        logo_label.setBounds(120, 30, 70, 80);
 
         layout_panel.add(jPanel2);
         jPanel2.setBounds(-10, -10, 360, 140);
