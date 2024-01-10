@@ -285,7 +285,7 @@ public class menu_usuarios extends javax.swing.JFrame {
         }
 
         layout_panel.add(jScrollPane1);
-        jScrollPane1.setBounds(400, 230, 500, 220);
+        jScrollPane1.setBounds(400, 230, 550, 220);
 
         btnAgregar.setBackground(new java.awt.Color(51, 204, 255));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -347,6 +347,11 @@ public class menu_usuarios extends javax.swing.JFrame {
 
         txtEID.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtEID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEIDKeyTyped(evt);
+            }
+        });
         layout_panel.add(txtEID);
         txtEID.setBounds(960, 258, 180, 30);
 
@@ -360,6 +365,11 @@ public class menu_usuarios extends javax.swing.JFrame {
 
         txtFirstName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtFirstName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFirstNameKeyTyped(evt);
+            }
+        });
         layout_panel.add(txtFirstName);
         txtFirstName.setBounds(960, 330, 180, 30);
 
@@ -373,6 +383,11 @@ public class menu_usuarios extends javax.swing.JFrame {
 
         txtLastName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtLastName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLastNameKeyTyped(evt);
+            }
+        });
         layout_panel.add(txtLastName);
         txtLastName.setBounds(960, 400, 180, 30);
 
@@ -407,7 +422,7 @@ public class menu_usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
-        // TODO add your handling code here:
+        cargarTabla();
     }//GEN-LAST:event_btnReadActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -433,6 +448,37 @@ public class menu_usuarios extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         abrirMenuMain();
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void txtEIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEIDKeyTyped
+        int limite = 8;
+        
+        char x = evt.getKeyChar();
+        
+        if (!Character.isLetter(x) && (x < '0' || x > '9') || !(x < 'a' || x > 'z')) {
+            evt.consume();
+        }
+        if (txtEID.getText().length() == limite) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtEIDKeyTyped
+
+    private void txtFirstNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyTyped
+        char x = evt.getKeyChar();
+        
+        if (!Character.isLetter(x))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtFirstNameKeyTyped
+
+    private void txtLastNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyTyped
+        char x = evt.getKeyChar();
+        
+        if (!Character.isLetter(x))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtLastNameKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
