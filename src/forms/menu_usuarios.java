@@ -5,19 +5,32 @@ import javax.swing.table.DefaultTableModel;
 
 public class menu_usuarios extends javax.swing.JFrame {
 
-    int EID = 0; //Employee ID
-    
+    private menu_main abrirFormMain;
     
     public menu_usuarios() {
         initComponents();
-        
     }
+    
+    int EID = 0;
     
     public void loadTable()
     {
         DefaultTableModel userTable = (DefaultTableModel) jTable1.getModel();
     }
     
+    //Métodos de Ventanas
+    private void abrirMenuMain()
+    {
+        if (abrirFormMain == null || !abrirFormMain.isVisible())
+        {
+            abrirFormMain = new menu_main();
+            abrirFormMain.setVisible(true);
+        }
+        else
+        {
+            abrirFormMain.toFront();
+        }
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -54,7 +67,7 @@ public class menu_usuarios extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         layout_panel.setBackground(new java.awt.Color(153, 204, 255));
         layout_panel.setLayout(null);
@@ -95,6 +108,11 @@ public class menu_usuarios extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Inicio");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         nav_panel.add(jLabel4);
         jLabel4.setBounds(30, 70, 100, 15);
 
@@ -370,6 +388,10 @@ public class menu_usuarios extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        abrirMenuMain();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

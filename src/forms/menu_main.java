@@ -2,14 +2,14 @@ package forms;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
-/**
- *
- * @author Oscar Marcía - Programmer Analyst
- */
-public class menu_main extends javax.swing.JFrame { 
-
+public class menu_main extends javax.swing.JFrame {
+    
+    private menu_usuarios abrirFormUsuarios;
+    
     public menu_main() {
+        
         initComponents();
         Color appColor = new Color(153,204,255);
         Color buttonColor = new Color(102,204,255);
@@ -48,6 +48,23 @@ public class menu_main extends javax.swing.JFrame {
         
     }
     
+    //Métodos de Ventanas
+    private void abrirMenuUsuarios()
+    {
+        if (abrirFormUsuarios == null || !abrirFormUsuarios.isVisible())
+        {
+            abrirFormUsuarios = new menu_usuarios();
+            abrirFormUsuarios.setVisible(true);
+        }
+        else
+        {
+            abrirFormUsuarios.toFront();
+        }
+    }
+    
+    //Métodos de Validación
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,9 +74,9 @@ public class menu_main extends javax.swing.JFrame {
         logo_label = new javax.swing.JLabel();
         nav_panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblInicio = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
+        lblUsuarios = new javax.swing.JLabel();
         nav_header = new javax.swing.JPanel();
         logo_label1 = new javax.swing.JLabel();
         btnGestionInventario = new javax.swing.JButton();
@@ -112,22 +129,27 @@ public class menu_main extends javax.swing.JFrame {
         nav_panel.add(jLabel2);
         jLabel2.setBounds(30, 10, 140, 30);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Inicio");
-        nav_panel.add(jLabel3);
-        jLabel3.setBounds(30, 70, 100, 15);
+        lblInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblInicio.setForeground(new java.awt.Color(0, 0, 0));
+        lblInicio.setText("Inicio");
+        nav_panel.add(lblInicio);
+        lblInicio.setBounds(30, 70, 100, 15);
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         nav_panel.add(jSeparator2);
         jSeparator2.setBounds(10, 50, 330, 10);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Usuarios");
-        nav_panel.add(jLabel4);
-        jLabel4.setBounds(30, 110, 100, 15);
+        lblUsuarios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblUsuarios.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuarios.setText("Usuarios");
+        lblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblUsuariosMouseClicked(evt);
+            }
+        });
+        nav_panel.add(lblUsuarios);
+        lblUsuarios.setBounds(30, 110, 100, 15);
 
         layout_panel.add(nav_panel);
         nav_panel.setBounds(0, 130, 350, 680);
@@ -332,8 +354,12 @@ public class menu_main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionInventarioActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        // TODO add your handling code here:
+        abrirMenuUsuarios();
     }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void lblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsuariosMouseClicked
+        abrirMenuUsuarios();
+    }//GEN-LAST:event_lblUsuariosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -379,12 +405,12 @@ public class menu_main extends javax.swing.JFrame {
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel layout_panel;
+    private javax.swing.JLabel lblInicio;
+    private javax.swing.JLabel lblUsuarios;
     private javax.swing.JLabel logo_label;
     private javax.swing.JLabel logo_label1;
     private javax.swing.JPanel lowerbar1;
