@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 
 public class menu_main extends javax.swing.JFrame {
     
-    private menu_usuarios abrirFormUsuarios;
-    private menu_main abrirFormMain;
+    private menu_usuarios abrirFormUsuarios = null;
+    private menu_main abrirFormMain = null;
     
     public menu_main() {
         
